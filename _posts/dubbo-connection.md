@@ -1,7 +1,7 @@
 ---
 title: '分布式系统：dubbo的连接机制'
-date:  2020-10-15
-lastmod:  2020-10-15
+date:  2020-10-15T16:04:16+08:00
+lastmod:  2020-10-15T16:04:16+08:00
 outdatedInfoWarning: true
 featuredImage: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
 featuredImagePreview: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
@@ -247,4 +247,4 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
 }
 ```
 ## 总结
-dubbo的高性能，也源于他对每个点不断的优化，最早的时候我记得看到一篇文章写到：dubbo的异步转同步机制，是使用的CountDownLatch实现的。现在想来，可能是在乱说。一些框架的原理，还是要自己多思考多翻看，才能掌握。
+dubbo的高性能，也源于他对每个点不断的优化，最早的时候我记得看到一篇文章写到：dubbo的异步转同步机制，是使用的CountDownLatch实现的。现在想来，可能是在乱说或者是已经过时的信息。一些框架的原理，还是要自己多思考多翻看，才能掌握。
