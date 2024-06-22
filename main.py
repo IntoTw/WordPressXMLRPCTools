@@ -203,10 +203,6 @@ def post_link_id_list_2_link_id_dic(post_link_id_list):
         link_id_dic[post["link"]] = post["id"]
     return link_id_dic
 
-
-def href_info(link):
-    return "<br/><br/><br/>\n\n\n\n## 本文永久更新地址: \n[" + link + "](" + link + ")"
-
 # 在README.md中插入信息文章索引信息，更容易获取google的收录
 def insert_index_info_in_readme():
     # 获取_posts下所有markdown文件
@@ -270,8 +266,7 @@ def main():
             terms_names_post_tag = metadata.get("tags",  domain_name)
             terms_names_category = metadata.get("categories", domain_name)
             post_status = "publish"
-            link = urllib.parse.quote(sha1_key , safe='').lower() 
-            content = markdown.markdown(content + href_info("https://"+domain_name+"/p/"+link+"/"), extensions=['tables', 'fenced_code'])
+            link = urllib.parse.quote(sha1_key , safe='').lower()
             # 如果文章无id,则直接新建
             if(("https://"+domain_name+"/p/"+link+"/" in link_id_dic.keys()) == False):
                 new_post(title, content,metadata, link, post_status, terms_names_post_tag, terms_names_category)
