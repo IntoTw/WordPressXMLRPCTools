@@ -155,3 +155,10 @@ G
 -.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
 S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+@
+README_BEFORE.md,f/5/f59a1d5913e1f3d4cd11598c018c151bb3add1c0
+8
+.md_sha1,2/7/27205ba1060886861855ef32d6cf5ca2f375b2e3
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302

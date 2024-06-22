@@ -1,7 +1,7 @@
 ---
 title: 'Git'
-date: 2020-10-14
-lastmod: 2020-10-14
+date: 2020-10-14T00:00:00+08:00
+lastmod: 2020-10-14T00:00:00+08:00
 outdatedInfoWarning: true
 featuredImage: "https://images.intotw.cn/blog/2023/09/ef5b4f8fe5b5a52acd020e25418132ce.png"
 featuredImagePreview: "https://images.intotw.cn/blog/2023/09/ef5b4f8fe5b5a52acd020e25418132ce.png"

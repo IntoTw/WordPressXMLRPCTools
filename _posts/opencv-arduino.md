@@ -1,7 +1,7 @@
 ---
 title: '使用OpenCv+Arduino实现挂机自动打怪'
-date: 2022-07-21
-lastmod: 2022-07-21
+date: 2022-07-21T00:00:00+08:00
+lastmod: 2022-07-21T00:00:00+08:00
 outdatedInfoWarning: true
 featuredImage: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
 featuredImagePreview: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"

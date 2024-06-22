@@ -1,7 +1,7 @@
 ---
 title: '使用jib-maven-plugin将Spring Boot项目发布为Docker镜像'
-date: 2020-10-14
-lastmod: 2020-10-14
+date: 2020-10-14T00:00:00+08:00
+lastmod: 2020-10-14T00:00:00+08:00
 outdatedInfoWarning: true
 featuredImage: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
 featuredImagePreview: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"

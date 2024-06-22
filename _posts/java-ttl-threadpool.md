@@ -1,7 +1,7 @@
 ---
 title: 'TransmittableThreadLocal解决线程池变量传递以及原理解析'
-date: 2021-05-07
-lastmod: 2021-05-07
+date: 2021-05-07T00:00:00+08:00
+lastmod: 2021-05-07T00:00:00+08:00
 outdatedInfoWarning: true
 featuredImage: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
 featuredImagePreview: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"

@@ -1,7 +1,7 @@
 ---
 title: '工作记录：记一次线上ZK掉线问题排查'
-date: 2020-10-14
-lastmod: 2020-10-14
+date: 2020-10-14T00:00:00+08:00
+lastmod: 2020-10-14T00:00:00+08:00
 outdatedInfoWarning: true
 featuredImage: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
 featuredImagePreview: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
@@ -44,12 +44,12 @@ com.alibaba.dubbo.rpc.RpcException: Forbid consumer 172.17.40.16 access service 
 ## zk的情况以及分析
 登上几台zk看日志，发现每隔半小时到一小时，在某X5时间，都会出现大量断开连接的日志。
 ```java
-2020-05-27 14:53:20,610 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /10.10.1.11:35730
-2020-05-27 14:53:20,610 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x0, likely client has closed socket
-2020-05-27 14:53:20,610 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1040] - Closed socket connection for client /10.10.1.11:35730 (no session established for client)
-2020-05-27 14:53:20,917 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /10.10.7.51:60135
-2020-05-27 14:53:20,921 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@938] - Client attempting to establish new session at /10.10.7.51:60135
-2020-05-27 14:53:20,977 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@683] - Established session 0x102d62c8fbab875 with negotiated timeout 10000 for client /10.10.7.51:60135
+2020-05-27T00:00:00+08:00 14:53:20,610 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /10.10.1.11:35730
+2020-05-27T00:00:00+08:00 14:53:20,610 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x0, likely client has closed socket
+2020-05-27T00:00:00+08:00 14:53:20,610 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1040] - Closed socket connection for client /10.10.1.11:35730 (no session established for client)
+2020-05-27T00:00:00+08:00 14:53:20,917 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /10.10.7.51:60135
+2020-05-27T00:00:00+08:00 14:53:20,921 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@938] - Client attempting to establish new session at /10.10.7.51:60135
+2020-05-27T00:00:00+08:00 14:53:20,977 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@683] - Established session 0x102d62c8fbab875 with negotiated timeout 10000 for client /10.10.7.51:60135
 ```
 可以看到，zk的日志大量刷屏，并且都是认为是远端没有了心跳，或者心跳超时，所以主动断开了连接，这也就解释了为什么明明dubbo在消费者端是有服务列表缓存的，但是还是会报上面的异常，原来是zk认为这些提供者下线了，所以通过通知，主动把整体服务的列表都刷新了，并不是提供者和zk之间单方面的问题，那么zk为什么会出现这样的问题呢？说实话，查了非常久，也是查了好几天，最后定位在：问题暴露在每五分钟的单位时间，即最短5分钟间隔，最长60分钟间隔，都会出现大量的批量下线后再批量上线的问题，虽然过程转瞬即逝，但是还是有部分业务会被影响到。于是查看有什么东西是5分钟的，查阅资料，zk和dubbo并没有什么缺省的5分钟或者更小整数倍数是5分钟的配置，我们也没有做类似配置，最后锁定到了一个嫌疑者：
 ```shell

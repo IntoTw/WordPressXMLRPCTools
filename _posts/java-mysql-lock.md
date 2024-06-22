@@ -1,7 +1,7 @@
 ---
 title: 'Java与Mysql锁相关知识总结'
-date: 2023-04-17
-lastmod: 2023-04-17
+date: 2023-04-17T00:00:00+08:00
+lastmod: 2023-04-17T00:00:00+08:00
 outdatedInfoWarning: true
 featuredImage: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
 featuredImagePreview: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"

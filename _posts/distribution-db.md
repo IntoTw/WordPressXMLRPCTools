@@ -1,7 +1,7 @@
 ---
 title: '分布式系统：数据库扩容提效-以及一次数据库分库分表实践'
-date: 2020-10-15
-lastmod: 2020-10-15
+date: 2020-10-15T00:00:00+08:00
+lastmod: 2020-10-15T00:00:00+08:00
 outdatedInfoWarning: true
 featuredImage: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
 featuredImagePreview: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"

@@ -1,7 +1,7 @@
 ---
 title: '关于我'
-date: 2020-10-14
-lastmod: 2020-10-14
+date: 2020-10-14T00:00:00+08:00
+lastmod: 2020-10-14T00:00:00+08:00
 outdatedInfoWarning: true
 featuredImage: ""
 featuredImagePreview: ""

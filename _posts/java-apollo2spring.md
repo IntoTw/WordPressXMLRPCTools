@@ -1,7 +1,7 @@
 ---
 title: '改造apollo配置中心客户端支持从Spring读取配置'
-date: 2021-04-12
-lastmod: 2021-04-12
+date: 2021-04-12T00:00:00+08:00
+lastmod: 2021-04-12T00:00:00+08:00
 outdatedInfoWarning: true
 featuredImage: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
 featuredImagePreview: "https://images.intotw.cn/blog/2023/11/40abddd196be7e9cb79b83534d4983a4.webp"
