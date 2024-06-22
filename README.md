@@ -4,6 +4,8 @@
 ## 目录(2024年06月22日更新)
 [贝叶斯概率以及贝叶斯公式](https://118.195.163.8/p/science-bayes/)
 
+[Ostep 18 Paging Introduction](https://118.195.163.8/p/ostep-18-Paging-Introduction/)
+
 [分库分表使用规范](https://118.195.163.8/p/db-mysql-sharding/)
 
 ---end---
