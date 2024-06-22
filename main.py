@@ -62,7 +62,7 @@ def get_posts():
     return post_link_id_list
 
 # 创建post对象
-def create_post_obj(title, content, link, post_status, terms_names_post_tag, terms_names_category,date, date_modified_gmt):
+def create_post_obj(title, content, link, post_status, terms_names_post_tag, terms_names_category,date=None, date_modified_gmt=None):
     post_obj = WordPressPost()
     post_obj.title = title
     post_obj.content = content
