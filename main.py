@@ -62,7 +62,7 @@ def get_posts():
     return post_link_id_list
 
 # 创建post对象
-def create_post_obj(title, content, link, post_status, terms_names_post_tag, terms_names_category):
+def create_post_obj(title, content, link, post_status, terms_names_post_tag, terms_names_category,date, date_modified_gmt):
     post_obj = WordPressPost()
     post_obj.title = title
     post_obj.content = content
@@ -76,13 +76,17 @@ def create_post_obj(title, content, link, post_status, terms_names_post_tag, ter
          #文章所属分类，没有则自动创建
         'category': terms_names_category
     }
+    if date:
+        post_obj.date = date
+    if date_modified_gmt:
+        post_obj.date_modified_gmt = date_modified_gmt
 
     return post_obj
 
 
 
 # 新建文章
-def new_post(title, content, link, post_status, terms_names_post_tag, terms_names_category):
+def new_post(title, content,metadata, link, post_status, terms_names_post_tag, terms_names_category):
 
     post_obj = create_post_obj(
         title = link, 
@@ -90,7 +94,9 @@ def new_post(title, content, link, post_status, terms_names_post_tag, terms_name
         link = link, 
         post_status = post_status, 
         terms_names_post_tag = terms_names_post_tag, 
-        terms_names_category = terms_names_category)
+        terms_names_category = terms_names_category,
+        date=metadata.get("date", time.strftime('%Y-%m-%d %H:%M:%S')),
+        date_modified_gmt = metadata.get("lastmod", time.strftime('%Y-%m-%d %H:%M:%S')))
     # 先获取id
     id = wp.call(NewPost(post_obj))
     # 再通过EditPost更新信息
@@ -268,7 +274,7 @@ def main():
             content = markdown.markdown(content + href_info("https://"+domain_name+"/p/"+link+"/"), extensions=['tables', 'fenced_code'])
             # 如果文章无id,则直接新建
             if(("https://"+domain_name+"/p/"+link+"/" in link_id_dic.keys()) == False):
-                new_post(title, content, link, post_status, terms_names_post_tag, terms_names_category)
+                new_post(title, content,metadata, link, post_status, terms_names_post_tag, terms_names_category)
                 print("new_post==>>", {
                     "title": title, 
                     "content": content, 
