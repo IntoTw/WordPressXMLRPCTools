@@ -20,7 +20,7 @@ lightgallery: true
 
 ----
 
-{{< bilibili id=BV1UW411X7u4 >}}
+<iframe  src="//player.bilibili.com/player.html?isOutside=true&aid=29666291&bvid=BV1UW411X7u4&cid=191799669&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
 
 ---
 
