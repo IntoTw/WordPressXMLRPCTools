@@ -14,21 +14,17 @@ lightgallery: true
 
 中间这段旋律的变化和情绪的递进更是让人觉得尽管生之如舟，但是在旅途上也有精彩
 
-{{< admonition info "生之如舟">}}
 
-And every time I see your face,
+> And every time I see your face,<br>
+the oceans heave up to my heart<br>
+You make me wanna strain at the oars,<br>
+and soon I can see the shore<br>
 
-the oceans heave up to my heart
 
-You make me wanna strain at the oars,
-
-and soon I can see the shore
-
-{{< /admonition >}}
 
 ----
 
-{{< bilibili BV1AU4y1a7w8>}}
+<iframe  src="//player.bilibili.com/player.html?isOutside=true&aid=672157950&bvid=BV1AU4y1a7w8&cid=310647896&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
 
 ---
 
